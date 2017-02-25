@@ -11,6 +11,10 @@
       res.end('<h1>Inscreva-se</h1>')
     }
 
+    if (req.url == '/local') {
+      res.end('<h1>Local</h1>')
+    }
+
     res.end('<h1>URL sem resposta definida!</h1>')
   })
 
