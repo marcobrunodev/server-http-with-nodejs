@@ -7,6 +7,10 @@
       res.end('<h1>Home</h1>')
     }
 
+    if (req.url == '/inscreva-se') {
+      res.end('<h1>Inscreva-se</h1>')
+    }
+
     res.end('<h1>URL sem resposta definida!</h1>')
   })
 
