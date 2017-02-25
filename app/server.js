@@ -15,6 +15,10 @@
       res.end('<h1>Local</h1>')
     }
 
+    if (req.url == '/contato') {
+      res.end('<h1>Contato</h1>')
+    }
+
     res.end('<h1>URL sem resposta definida!</h1>')
   })
 
