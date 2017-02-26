@@ -1,28 +1,19 @@
-  let http = require('http')
-  let port = 3000
-  let ip = 'localhost'
+let http = require('http')
+let port = 3000
+let ip = 'localhost'
 
-  let server = http.createServer((req, res) => {
-    if (req.url == '/') {
-      res.end('<h1>Home</h1>')
-    }
+let server = http.createServer((req, res) => {
+  let responses = []
+  responses['/'] = '<h1>Home</h1>'
+  responses['/inscreva-se'] = '<h1>Inscreva-se</h1>'
+  responses['/local'] = '<h1>Local</h1>'
+  responses['/contato'] = '<h1>Contato</h1>'
+  responses['/naoExiste'] = '<h1>URL sem resposta definida!</h1>'
 
-    if (req.url == '/inscreva-se') {
-      res.end('<h1>Inscreva-se</h1>')
-    }
+  res.end(responses[req.url] || responses['/naoExiste'])
+})
 
-    if (req.url == '/local') {
-      res.end('<h1>Local</h1>')
-    }
-
-    if (req.url == '/contato') {
-      res.end('<h1>Contato</h1>')
-    }
-
-    res.end('<h1>URL sem resposta definida!</h1>')
-  })
-
-  server.listen(port, ip, () => {
-    console.log(`Servidor rodando em http://${ip}:${port}`)
-    console.log('Para derrubar o servidor: ctrl + c');
-  })
+server.listen(port, ip, () => {
+  console.log(`Servidor rodando em http://${ip}:${port}`)
+  console.log('Para derrubar o servidor: ctrl + c');
+})
